@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 // Define props interface
 export interface TextWriterProps {
@@ -8,11 +8,11 @@ export interface TextWriterProps {
 }
 
 const TextWriter: React.FC<TextWriterProps> = ({ speed, textArr, cursor }) => {
-    const [text, setText] = useState("");
-    const [idx, setIdx] = useState(0); // Start from 0 to avoid out of range
-    const [forward, setForward] = useState(true);
+    const [text, setText] = React.useState("");
+    const [idx, setIdx] = React.useState(0); // Start from 0 to avoid out of range
+    const [forward, setForward] = React.useState(true);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const interval = setInterval(() => {
             writeText();
         }, speed);
