@@ -18,6 +18,8 @@
   
 <!-- You can put pictures, gifs, screenshots or videos for the program here  -->
 
+![bandicam-2024-04-23-11-27-42-180](https://github.com/qobulovasror/simple-text-writer/assets/71517683/995cd209-8337-4715-b297-a7f9869340ca)
+
   
   <!-- About -->
 
