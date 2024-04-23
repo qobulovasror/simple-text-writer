@@ -1,51 +1,56 @@
 import React, { useState, useEffect } from "react";
 
+// Define props interface
 export interface TextWriterProps {
-    speed: number,
-    textArr: [string],
-    cursor: string
+    speed: number;
+    textArr: string[];
+    cursor: string;
 }
 
-const TextWriter = (props: TextWriterProps) => {
-    const { speed, textArr, cursor } = props;
+const TextWriter: React.FC<TextWriterProps> = ({ speed, textArr, cursor }) => {
     const [text, setText] = useState("");
-    const [idx, setIdx] = useState(1);
-    const [item, setItem] = useState(0);
-    const [lenZero, setLenZero] = useState(true);
+    const [idx, setIdx] = useState(0); // Start from 0 to avoid out of range
+    const [forward, setForward] = useState(true);
 
     useEffect(() => {
-        let Time = setInterval(() => {
-            writeText()
+        const interval = setInterval(() => {
+            writeText();
         }, speed);
-        return () => { clearInterval(Time) }
-    })
+
+        return () => clearInterval(interval); // Clear interval on unmount
+    }, [idx]); // Trigger effect only when idx changes
 
     const writeText = () => {
-        if (lenZero) {
-            setText(textArr[item].slice(0, idx));
-            setIdx(idx + 1)
-            if (idx > textArr[item].length) {
-                setLenZero(false);
-            }
+        let newText;
+        let newIdx;
+
+        // Determine the direction of typing
+        if (forward) {
+            newText = textArr[0].slice(0, idx + 1);
+            newIdx = idx + 1;
         } else {
-            setText(textArr[item].slice(0, idx));
-            setIdx(idx - 1)
-            if (idx === 1) {
-                setLenZero(true);
-                if (item + 1 === textArr.length)
-                    setItem(0)
-                else setItem(item + 1)
-            }
+            newText = textArr[0].slice(0, idx - 1);
+            newIdx = idx - 1;
         }
 
-    }
+        setText(newText);
+
+        // Change direction and reset index when reaching the end
+        if (newIdx === textArr[0].length) {
+            setForward(false);
+        } else if (newIdx === 0) {
+            setForward(true);
+        }
+
+        setIdx(newIdx);
+    };
+
     return (
         <>
-            {text}<div style={{ color: "#00f", display: 'inline' }}>{cursor}</div>
+            {text}
+            <span style={{ color: "#00f" }}>{cursor}</span>
         </>
-    )
+    );
 };
 
 export default TextWriter;
-
-

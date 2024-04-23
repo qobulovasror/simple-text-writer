@@ -68,11 +68,15 @@ You can run the program via npm or by downloading this repository
   ```
   or
   ```bash
-  npm install @qobulovasror/simple-text-writer
+  npm i simple-text-writer
   ```
   or
   ```bash
   yarn add @qobulovasror/simple-text-writer
+  ```
+  or
+  ```bash
+  yarn add simple-text-writer
   ```
   
 <!-- Contributing -->
