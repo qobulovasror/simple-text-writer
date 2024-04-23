@@ -1,6 +1,6 @@
 {
   "name": "simple-text-writer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple react component for adding a nice wordwriter effect to your website.",
   "scripts": {
     "build": "tsc",
