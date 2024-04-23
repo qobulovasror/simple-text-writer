@@ -1,0 +1,50 @@
+{
+  "name": "@qobulovasror/simple-text-writer",
+  "version": "1.0.0",
+  "description": "A simple react component for adding a nice wordwriter effect to your website.",
+  "scripts": {
+    "build": "tsc",
+    "rollup": "rollup -c --exports auto --bundleConfigAsCjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qobulovasror/simple-text-writer.git"
+  },
+  "keywords": [
+    "js",
+    "react",
+    "component",
+    "text-writer",
+    "type-writer"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "author": "Qobulov Asror",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qobulovasror/simple-text-writer/issues"
+  },
+  "homepage": "https://github.com/qobulovasror/simple-text-writer#readme",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^18.2.79",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^4.14.3",
+    "rollup-plugin-dts": "^6.1.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "tslib": "^2.6.2"
+  }
+}
